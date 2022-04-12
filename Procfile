@@ -1,1 +1,1 @@
-web: gunicorn TPV.wsgi
+web: gunicorn Tpv.wsgi
