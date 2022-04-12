@@ -1,0 +1,38 @@
+{% load static %}
+
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'tpvapp/style_login.css'%}">
+    <title>Tpv</title>
+</head>
+<body>
+    <div class="img"><img src="{% static 'tpvapp/TM.png'%}"></div>
+    <nav>
+        <ul>
+            <li><a href="/stats">Stats</a></li>
+            <li><a href="/add">Add</a></li>
+            <li><h5> <script> document.write(new Date().toLocaleDateString()); </script></h5></li>
+        </ul>
+
+    </nav>
+   
+
+<div class="form_login">
+    <h1>Inscription</h1>
+    <form action="" method="post">
+     {% csrf_token %}
+      <div>  <input type="text" name="username" placeholder="nom d'utilisateur"></div>
+      <div>  <input type="password" name="password" placeholder="mot de passe"></div>
+      <div>  <input type="text" name="name" placeholder="Prénom"></div>
+      <div> <input type="submit" name="submit" value="Créer un compte"></div>
+
+    </form>
+<div><h4 style="color: red;">{{message}}</h4></div>
+
+</div>
+
+</body>
+</html>

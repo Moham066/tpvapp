@@ -1,0 +1,91 @@
+{% load static %}
+
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'tpvapp/style.css'%}">
+    <title>Tpv</title>
+</head>
+<body>
+  <div class="img"><img src="{% static 'tpvapp/TM.png'%}"></div>
+  <nav>
+      <ul>
+          <li><a href="/stats">Stats</a></li>
+          <li><a href="/add">Add</a></li>
+          <li><a href="">Connecté : {{user}}</a></li>
+          <li><a href="/logout_user">Se décconecter</a></li>
+          <li><h5> <script> document.write(new Date().toLocaleDateString()); </script></h5></li>
+      </ul>
+
+  </nav>
+
+  {% if user.is_authenticated   %}
+  <br>
+    <div class="formulaire">
+      <form action="/stats/filter" method="POST">
+      {% csrf_token %}
+      <label for="start">Start date:</label>
+      <input type="date" id="start" name="date1"
+                 value="2022-03-17"
+                 min="2022-01-01" max="2025-12-31">
+      <label for="end">End date:</label>
+      <input type="date" id="end" name="date2"
+                 value="2022-03-17"
+                 min="2022-01-01" max="2025-12-31">
+      <input id="btn1" type="submit" value="Filtrer">    
+      </form>
+  </div>
+   
+    <div class="dep">
+        <table>
+            <tr>
+              <th>Dépence</th>
+              <th>Description</th>
+              <th>Montant</th>
+              <th>Par</th>
+              <th>Date</th>
+            </tr>
+            {% for dep in dep %}
+            <tr>
+              <td>Dépence</td>
+              <td>{{dep.description}}</td>
+              <td>{{dep.montant | floatformat:2 }} Da</td>
+              <td>{{dep.par}}</td>
+              <td>{{dep.date}}</td>
+            </tr>
+            {% endfor %}
+            
+              
+          </table>
+    </div>
+    <div class="rec">
+        <table>
+            <tr>
+              <th>Recette</th>
+              <th>Montant</th>
+              <th>Par</th>
+              <th>Date</th>
+            </tr>
+            {% for rec in rec %}
+            <tr>
+              <td>Recette</td>
+          
+              <td>{{rec.montant | floatformat:2 }} Da</td>
+              <td>{{rec.par}}</td>
+              <td>{{rec.date}}</td>
+            </tr>
+            {% endfor %}
+           
+           
+          </table>
+
+    </div>
+    <h1>Bienifice : {{ valeur | floatformat:2 }} DA </h1>
+    {% else   %}
+    <h2 style="color: red; margin-left: 10px;">Veuillez vous identifier d'abord</h2>
+    <a style="color:blue;margin-left: 10px;" href="/">Login</a>
+    {% endif   %}
+</body>
+</html>

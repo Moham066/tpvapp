@@ -1,0 +1,163 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+nav{
+    width: 100%;
+    overflow:hidden;
+    background-color: #1A132F;
+
+}
+ul{
+    padding: 0;
+    width: 100%;
+    margin: 0 0 0 250px;
+    list-style: none;
+}
+li{
+    float: left;
+}
+
+li a {
+    width: 100%;
+    display: block;
+    padding: 20px 15px;
+    text-decoration: none;
+    font-family: arial;
+    color: white;
+    text-align: center;
+
+}
+li a:hover{
+    background-color: grey;
+    
+}
+li h5 {
+    width: 100%;
+    display: block;
+    margin-right: 20px;
+    padding: 0 200px;
+    text-decoration: none;
+    font-family: arial;
+    color: white;
+    text-align: center;
+
+}
+
+
+.img img{
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 100px ;
+    height: 50px ;
+}
+
+   
+.formulaire{
+   
+    margin: 10px 10px;
+    padding-left: 5px;
+
+
+}
+
+#btn1{
+
+    padding: 3px 20px;
+    margin-left: 10px;
+
+}
+.dep{
+    height: 300px;
+    width: 45%;
+    overflow-y:auto;
+    display: inline-block;
+    margin-left: 2%;
+    margin-top: 50px;
+
+
+}
+.rec{
+    height: 300px;
+    width: 45%;
+    
+    float: right;
+    margin-right: 2%;
+    margin-top: 50px;
+
+}
+h1{
+    margin-left: 5%;
+    color: #1A132F;
+    font-family: Tahoma;   
+    font-weight: bold;
+}
+
+.dep table{
+    background-color: lightgrey;
+    border: 1px solid;
+    border-collapse: collapse;
+    display: inline-block;
+    table-layout: fixed;
+    
+
+ 
+
+}
+
+.dep th{
+    text-align: center;
+    border: 1px solid;
+    background-color: #1a132f8a;
+   
+
+}
+.dep td{
+    text-align: left;
+    border: 1px solid;
+
+}
+.rec table{
+    background-color: lightgrey;
+    border: 1px solid;
+    width: fit-content;
+    border-collapse: collapse;
+    display: inline-block;
+
+ 
+
+}
+
+.rec th{
+    text-align: center;
+    border: 1px solid;
+    background-color: #1a132f8a;
+   
+    
+    
+}
+.rec td{
+    text-align: left;
+    border: 1px solid;
+
+}
+
+
+
+.formulaire2{
+    
+    padding: 5px;
+    margin: 5px 5px;
+}
+.formulaire2 input{
+    margin-bottom: 5px;
+}
+
+.date2{
+    
+    margin-top: 5px;
+}
+
+
+

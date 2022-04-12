@@ -1,0 +1,71 @@
+{% load static %}
+
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'tpvapp/style.css' %}">
+    <title>Tpv</title>
+</head>
+<body>
+
+
+    <div class="img"><img src="{% static 'tpvapp/TM.png'%}"></div>
+    <nav>
+        <ul>
+            <li><a href="/stats">Stats</a></li>
+            <li><a href="/add">Add</a></li>
+            <li><a href="">Connecté : {{user}}</a></li>
+            <li><a href="/logout_user">Se décconecter</a></li>
+            <li><h5> <script> document.write(new Date().toLocaleDateString()); </script></h5></li>
+        </ul>
+
+    </nav>
+   
+
+
+
+    {% if user.is_authenticated   %}
+   
+    <br>
+    <h2>Ajouter une recette :</h2>
+    <div class="formulaire">
+        <form action="/add/" method="POST" >
+        {% csrf_token %}
+        <input type="text" name="montant_rec" placeholder="Montant recette">
+        <label for="start">La Date: </label>
+        <input type="date" id="start" name="date1"
+                   value="2022-03-17"
+                   min="2022-01-01" max="2025-12-31">
+        <input type="text" name="rec_par" value={{user}}>
+        <input id="btn1" type="submit" value="Ajouter">    
+        </form>
+    </div>
+    <br>
+    <br>
+    <h2>Ajouter une Dépence :</h2>
+    <div class="formulaire2">
+        <form action="/add/" method="POST" >
+        {% csrf_token %}
+        <input type="text" name="montant_dep" placeholder="Montant deppence">
+        <div class="textarea"><textarea name="desc" placeholder="Description"></textarea></div>
+       <div class="date2"> <label for="start">La Date: </label>
+        <input type="date" id="start" name="date2"
+                   value="2022-03-17"
+                   min="2022-01-01" max="2025-12-31">
+        </div>
+        <input type="text" name="dep_par" value={{user}}>
+        <input id="btn1" type="submit" value="Ajouter">    
+        </form>
+    </div>
+    <div class="etat">
+        <H1>{{ etat }}</H1>
+    </div>
+    
+    {% else %}
+    <h2 style="color: red; margin-left: 10px;">Veuillez vous identifier d'abord</h2>
+    <a style="color:blue;margin-left: 10px;" href="/">Login</a>
+    {% endif %}
+</body>
+</html>
